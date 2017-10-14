@@ -15,7 +15,8 @@ urlPart4 = "-3.html"
 def strDecode(uriCode):
     a = re.sub('[+"]', '', uriCode)
     b = parse.unquote(a)
-    str = re.sub('[</b>]', '', b)
+    c = re.compile(r'<[^>]+>',re.S)
+    str = c.sub('', b)
     return str
 
 for pageNum in range(1,10):
