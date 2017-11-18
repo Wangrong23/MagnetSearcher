@@ -3,6 +3,9 @@ import urllib.request
 import base64
 from urllib import parse
 
+headers = {
+    'User-Agent':'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6'
+}
 inputKeyWord = input("输入搜索关键词：")
 bytesKeyWord = inputKeyWord.encode(encoding="utf-8")
 decodeWord = base64.b64encode(bytesKeyWord)
@@ -22,7 +25,8 @@ def strDecode(uriCode):
 for pageNum in range(1,10):
 
     url = urlPart1+urlPart2+str(pageNum)+urlPart4
-    res = urllib.request.urlopen(url)
+    req = request.Request(url=url,headers=headers)
+    res = urllib.request.urlopen(req)
     ret = res.read().decode("utf-8")
 
     itemTitleCode = re.findall(r'<div class="item-title">.*?decodeURIComponent\((.*?)\)\);', ret, re.S)
