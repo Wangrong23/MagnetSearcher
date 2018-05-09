@@ -11,7 +11,7 @@ inputKeyWord = input("输入搜索关键词：")
 bytesKeyWord = inputKeyWord.encode(encoding="utf-8")
 decodeWord = base64.b64encode(bytesKeyWord)
 keyCode = decodeWord.decode()
-urlPart1 = "http://www.btwhat.info/search/b-"
+urlPart1 = "http://www.btdidi.org/search/b-"
 urlPart2 = keyCode+"/"
 urlPart4 = "-3.html"
 
